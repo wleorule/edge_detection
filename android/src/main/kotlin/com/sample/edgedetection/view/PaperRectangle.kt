@@ -95,7 +95,7 @@ class PaperRectangle : View {
         Log.e(TAG, "Height: " + size?.height.toString() + "!")
         Log.e(TAG, "Statusbar: " + statusBarHeight.toString() + "!")
         Log.e(TAG, "Ratio: " + ratioY.toString() + "!")
-
+        Log.e(TAG, "HP: " +  displayMetrics.heightPixels.toString() + "!")
 
         resize()
 
