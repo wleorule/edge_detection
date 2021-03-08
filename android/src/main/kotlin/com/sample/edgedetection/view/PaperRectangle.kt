@@ -80,7 +80,7 @@ class PaperRectangle : View {
 
         cropMode = true
         tl = org.opencv.core.Point(0.0,0.0) //corners?.corners?.get(0) ?: SourceManager.defaultTl
-        tr = org.opencv.core.Point(size?.width ?: 500.0,0.0) //corners?.corners?.get(1) ?: SourceManager.defaultTr
+        tr = org.opencv.core.Point(size?.width ?: 20.0,0.0) //corners?.corners?.get(1) ?: SourceManager.defaultTr
         br = org.opencv.core.Point(size?.width ?: 500.0,size?.height ?: 500.0)  //corners?.corners?.get(2) ?: SourceManager.defaultBr
         bl = org.opencv.core.Point(0.0,size?.height ?: 500.0) //corners?.corners?.get(3) ?: SourceManager.defaultBl
         val displayMetrics = DisplayMetrics()
