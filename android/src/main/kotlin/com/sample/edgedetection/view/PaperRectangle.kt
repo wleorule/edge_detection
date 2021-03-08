@@ -80,6 +80,8 @@ class PaperRectangle : View {
 
         cropMode = true
         val statusBarHeight = getStatusBarHeight(context)
+        val navigationBarHeight = getNavigationBarHeight(context)
+
         tl = org.opencv.core.Point(0.0,0.0) //corners?.corners?.get(0) ?: SourceManager.defaultTl
         tr = org.opencv.core.Point(size?.width ?: 500.0,0.0) //corners?.corners?.get(1) ?: SourceManager.defaultTr
         br = org.opencv.core.Point(size?.width ?: 500.0,(size?.height ?: 30.0) - statusBarHeight)  //corners?.corners?.get(2) ?: SourceManager.defaultBr
@@ -93,14 +95,14 @@ class PaperRectangle : View {
         ratioY = size?.height?.div(displayMetrics.heightPixels  - statusBarHeight) ?: 1.0
 
         Log.e(TAG, "Height: " + size?.height.toString() + "!")
-        Log.e(TAG, "Statusbar: " + statusBarHeight.toString() + "!")
+        Log.e(TAG, "Statusbar: " + statusBarHeight.toString() + " - " + navigationBarHeight.toString() + "!")
         Log.e(TAG, "Ratio: " + ratioY.toString() + "!")
         Log.e(TAG, "HP: " +  displayMetrics.heightPixels.toString() + "!")
 
         resize()
 
-        br.y = 1100.0
-        bl.y = 1100.0
+        br.y = (double)(displayMetrics.heightPixels) - statusBarHeight - navigationBarHeight
+        bl.y = (double)(displayMetrics.heightPixels) - statusBarHeight - navigationBarHeight
 
         Log.e(TAG, "tl: " + tl.x + " - " + tl.y + "!")
         Log.e(TAG, "tr: " + tr.x + " - " + tr.y + "!")
