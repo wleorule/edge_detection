@@ -89,7 +89,7 @@ class PaperRectangle : View {
         //exclude status bar height
 
         ratioX = size?.width?.div(displayMetrics.widthPixels) ?: 1.0
-        ratioY = size?.height?.div(displayMetrics.heightPixels - statusBarHeight) ?: 1.0
+        ratioY = 1.0 //size?.height?.div(displayMetrics.heightPixels - statusBarHeight) ?: 1.0
         resize()
         movePoints()
     }
