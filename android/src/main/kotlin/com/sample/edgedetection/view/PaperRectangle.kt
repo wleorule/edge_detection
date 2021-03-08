@@ -101,8 +101,8 @@ class PaperRectangle : View {
 
         resize()
 
-        br.y = (displayMetrics.heightPixels).toDouble() - statusBarHeight - navigationBarHeight
-        bl.y =  (displayMetrics.heightPixels).toDouble() - statusBarHeight - navigationBarHeight
+        br.y = (displayMetrics.heightPixels).toDouble() - statusBarHeight - navigationBarHeight - 8
+        bl.y =  (displayMetrics.heightPixels).toDouble() - statusBarHeight - navigationBarHeight - 8
 
         Log.e(TAG, "tl: " + tl.x + " - " + tl.y + "!")
         Log.e(TAG, "tr: " + tr.x + " - " + tr.y + "!")
