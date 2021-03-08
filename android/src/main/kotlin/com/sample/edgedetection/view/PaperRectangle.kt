@@ -90,7 +90,7 @@ class PaperRectangle : View {
 
 
         ratioX = size?.width?.div(displayMetrics.widthPixels) ?: 1.0
-        ratioY = size?.height?.div(displayMetrics.heightPixels) ?: 1.0
+        ratioY = size?.height?.div(displayMetrics.heightPixels  - statusBarHeight) ?: 1.0
 
         Log.e(TAG, "Height: " + size?.height.toString() + "!")
         Log.e(TAG, "Statusbar: " + statusBarHeight.toString() + "!")
@@ -98,6 +98,9 @@ class PaperRectangle : View {
 
 
         resize()
+
+        br.y -= statusBarHeight
+        bl.y -= statusBarHeight
 
         Log.e(TAG, "tl: " + tl.x + " - " + tl.y + "!")
         Log.e(TAG, "tr: " + tr.x + " - " + tr.y + "!")
