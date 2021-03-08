@@ -79,14 +79,15 @@ class PaperRectangle : View {
     fun onCorners2Crop(corners: Corners?, size: Size?) {
 
         cropMode = true
+        val statusBarHeight = getStatusBarHeight(context)
         tl = org.opencv.core.Point(0.0,0.0) //corners?.corners?.get(0) ?: SourceManager.defaultTl
-        tr = org.opencv.core.Point(size?.width ?: 20.0,0.0) //corners?.corners?.get(1) ?: SourceManager.defaultTr
-        br = org.opencv.core.Point(size?.width ?: 500.0,size?.height ?: 500.0)  //corners?.corners?.get(2) ?: SourceManager.defaultBr
-        bl = org.opencv.core.Point(0.0,size?.height ?: 500.0) //corners?.corners?.get(3) ?: SourceManager.defaultBl
+        tr = org.opencv.core.Point(size?.width ?: 500.0,0.0) //corners?.corners?.get(1) ?: SourceManager.defaultTr
+        br = org.opencv.core.Point(size?.width ?: 500.0,(size?.height ?: 500.0) - statusBarHeight)  //corners?.corners?.get(2) ?: SourceManager.defaultBr
+        bl = org.opencv.core.Point(0.0,(size?.height ?: 500.0) - statusBarHeight) //corners?.corners?.get(3) ?: SourceManager.defaultBl
         val displayMetrics = DisplayMetrics()
         (context as Activity).windowManager.defaultDisplay.getMetrics(displayMetrics)
         //exclude status bar height
-        val statusBarHeight = getStatusBarHeight(context)
+
         ratioX = size?.width?.div(displayMetrics.widthPixels) ?: 1.0
         ratioY = size?.height?.div(displayMetrics.heightPixels - statusBarHeight) ?: 1.0
         resize()
