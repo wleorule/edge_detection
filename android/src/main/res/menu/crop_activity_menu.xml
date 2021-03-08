@@ -4,7 +4,7 @@
         android:id="@+id/action_label"
         android:title="@string/crop"
         app:showAsAction="always"
-        android:icon="@drawable/ic_crop"/>
+        android:icon="@drawable/ic_done"/>
 
     <item
         android:id="@+id/rotation_image"
