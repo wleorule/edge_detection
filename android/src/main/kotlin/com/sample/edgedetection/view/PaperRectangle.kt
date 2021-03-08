@@ -82,10 +82,10 @@ class PaperRectangle : View {
         val statusBarHeight = getStatusBarHeight(context)
         val navigationBarHeight = getNavigationBarHeight(context)
 
-        tl = org.opencv.core.Point(0.0,0.0) //corners?.corners?.get(0) ?: SourceManager.defaultTl
-        tr = org.opencv.core.Point(size?.width ?: 500.0,0.0) //corners?.corners?.get(1) ?: SourceManager.defaultTr
-        br = org.opencv.core.Point(size?.width ?: 500.0,(size?.height ?: 30.0) - statusBarHeight)  //corners?.corners?.get(2) ?: SourceManager.defaultBr
-        bl = org.opencv.core.Point(0.0,(size?.height ?: 30.0) - statusBarHeight) //corners?.corners?.get(3) ?: SourceManager.defaultBl
+        tl = Point(0.0,0.0) //corners?.corners?.get(0) ?: SourceManager.defaultTl
+        tr = Point(size?.width ?: 500.0,0.0) //corners?.corners?.get(1) ?: SourceManager.defaultTr
+        br = Point(size?.width ?: 500.0,(size?.height ?: 30.0) - statusBarHeight)  //corners?.corners?.get(2) ?: SourceManager.defaultBr
+        bl = Point(0.0,(size?.height ?: 30.0) - statusBarHeight) //corners?.corners?.get(3) ?: SourceManager.defaultBl
         val displayMetrics = DisplayMetrics()
         (context as Activity).windowManager.defaultDisplay.getMetrics(displayMetrics)
         //exclude status bar height
@@ -101,8 +101,8 @@ class PaperRectangle : View {
 
         resize()
 
-        br.y = (double)(displayMetrics.heightPixels) - statusBarHeight - navigationBarHeight
-        bl.y = (double)(displayMetrics.heightPixels) - statusBarHeight - navigationBarHeight
+        br.y = (displayMetrics.heightPixels).toDouble() - statusBarHeight - navigationBarHeight
+        bl.y =  (displayMetrics.heightPixels).toDouble() - statusBarHeight - navigationBarHeight
 
         Log.e(TAG, "tl: " + tl.x + " - " + tl.y + "!")
         Log.e(TAG, "tr: " + tr.x + " - " + tr.y + "!")
