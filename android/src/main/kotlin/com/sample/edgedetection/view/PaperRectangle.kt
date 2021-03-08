@@ -88,9 +88,21 @@ class PaperRectangle : View {
         (context as Activity).windowManager.defaultDisplay.getMetrics(displayMetrics)
         //exclude status bar height
 
+
         ratioX = size?.width?.div(displayMetrics.widthPixels) ?: 1.0
-        ratioY = 1.0 //size?.height?.div(displayMetrics.heightPixels - statusBarHeight) ?: 1.0
+        ratioY = size?.height?.div(displayMetrics.heightPixels - statusBarHeight) ?: 1.0
+
+        Log.e(TAG, "Height: " + size?.height.toString() + "!")
+        Log.e(TAG, "Statusbar: " + statusBarHeight.toString() + "!")
+        Log.e(TAG, "Ratio: " + ratioY.toString() + "!")
+
+
         resize()
+
+        Log.e(TAG, "tl: " + tl.x + " - " + tl.y + "!")
+        Log.e(TAG, "tr: " + tr.x + " - " + tr.y + "!")
+        Log.e(TAG, "bl: " + bl.x + " - " + bl.y + "!")
+        Log.e(TAG, "br: " + br.x + " - " + br.y + "!")
         movePoints()
     }
 
