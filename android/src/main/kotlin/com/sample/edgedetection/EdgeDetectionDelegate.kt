@@ -2,6 +2,8 @@ package com.sample.edgedetection
 
 import android.app.Activity
 import android.content.Intent
+import android.util.Log
+import com.sample.edgedetection.processor.TAG
 import com.sample.edgedetection.scan.ScanActivity
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
@@ -19,7 +21,9 @@ class EdgeDetectionDelegate(activity: Activity) : PluginRegistry.ActivityResultL
         if (requestCode == REQUEST_CODE) {
             if (resultCode == Activity.RESULT_OK) {
                 if (null != data && null != data.extras) {
+                    Log.e(TAG, "usao1!");
                     val filePath = data.extras!!.getString(SCANNED_RESULT)
+                    Log.e(TAG, "usao2: !" + filePath);
                     finishWithSuccess(filePath)
                 }
             } else if (resultCode == Activity.RESULT_CANCELED) {
@@ -62,7 +66,9 @@ class EdgeDetectionDelegate(activity: Activity) : PluginRegistry.ActivityResultL
     }
 
     private fun finishWithSuccess(imagePath: String?) {
+        Log.e(TAG, "uspjesno zavrsavam!");
         result?.success(imagePath)
+        Log.e(TAG, "zavrsio!");
         clearMethodCallAndResult()
     }
 
