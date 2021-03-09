@@ -80,7 +80,9 @@ class CropActivity : BaseActivity(), ICropView.Proxy {
 
                 mPresenter.crop()
 
-                Thread.sleep(2000)
+                while(mPresenter.croppedBitmap == null) {
+                    Thread.sleep(500)
+                }
 
                 Log.e(TAG, "Saved touched!");
 
@@ -91,6 +93,8 @@ class CropActivity : BaseActivity(), ICropView.Proxy {
                 setResult(Activity.RESULT_OK, Intent().putExtra(SCANNED_RESULT, path))
                 System.gc()
                 finish()
+
+
                 //changeMenuVisibility(true);
 
                 return true

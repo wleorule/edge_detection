@@ -41,7 +41,7 @@ class CropPresenter(val context: Context, private val iCropView: ICropView.Proxy
     private val corners: Corners? = SourceManager.corners
     private var croppedPicture: Mat? = null
     private var enhancedPicture: Bitmap? = null
-    private var croppedBitmap: Bitmap? = null
+    public var croppedBitmap: Bitmap? = null
     private var rotateBitmap: Bitmap? = null
     private var rotateBitmapDegree: Int = -90
     private var rotateBitmapCurrentDegree: Int = 0
