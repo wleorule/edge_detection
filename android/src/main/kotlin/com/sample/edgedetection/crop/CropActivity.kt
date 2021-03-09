@@ -80,6 +80,8 @@ class CropActivity : BaseActivity(), ICropView.Proxy {
 
                 mPresenter.crop()
 
+                Thread.sleep(2000)
+
                 Log.e(TAG, "Saved touched!");
 
                 var path = mPresenter.save()
@@ -89,7 +91,6 @@ class CropActivity : BaseActivity(), ICropView.Proxy {
                 setResult(Activity.RESULT_OK, Intent().putExtra(SCANNED_RESULT, path))
                 System.gc()
                 finish()
-
                 //changeMenuVisibility(true);
 
                 return true
