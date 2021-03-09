@@ -76,7 +76,16 @@ class CropPresenter(val context: Context, private val iCropView: ICropView.Proxy
             return
         }
 
-        Observable.create<Mat> {
+        var pc = cropPicture(picture, iCropView.getPaperRect().getCorners2Crop())
+
+        croppedPicture = pc
+        croppedBitmap = Bitmap.createBitmap(pc.width(), pc.height(), Bitmap.Config.ARGB_8888)
+        Utils.matToBitmap(pc, croppedBitmap)
+        iCropView.getCroppedPaper().setImageBitmap(croppedBitmap)
+        iCropView.getPaper().visibility = View.GONE
+        iCropView.getPaperRect().visibility = View.GONE
+
+        /*Observable.create<Mat> {
             it.onNext(cropPicture(picture, iCropView.getPaperRect().getCorners2Crop()))
         }
                 .subscribeOn(Schedulers.computation())
@@ -89,7 +98,7 @@ class CropPresenter(val context: Context, private val iCropView: ICropView.Proxy
                     iCropView.getCroppedPaper().setImageBitmap(croppedBitmap)
                     iCropView.getPaper().visibility = View.GONE
                     iCropView.getPaperRect().visibility = View.GONE
-                }
+                }*/
     }
 
     fun enhance() {

@@ -80,9 +80,7 @@ class CropActivity : BaseActivity(), ICropView.Proxy {
 
                 mPresenter.crop()
 
-                while(mPresenter.croppedBitmap == null) {
-                    Thread.sleep(500)
-                }
+
 
                 Log.e(TAG, "Saved touched!");
 
