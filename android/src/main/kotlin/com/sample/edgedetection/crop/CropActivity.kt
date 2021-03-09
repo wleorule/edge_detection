@@ -89,7 +89,9 @@ class CropActivity : BaseActivity(), ICropView.Proxy {
                 Log.e(TAG, "Saved touched! $path");
 
                 setResult(Activity.RESULT_OK, Intent().putExtra(SCANNED_RESULT, path))
-                //System.gc()
+                Log.e(TAG, "posatvio rezultate!");
+                System.gc()
+                Log.e(TAG, "ocistio!");
                 finish()
 
 
