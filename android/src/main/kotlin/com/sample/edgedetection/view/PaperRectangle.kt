@@ -94,20 +94,14 @@ class PaperRectangle : View {
         ratioX = size?.width?.div(displayMetrics.widthPixels) ?: 1.0
         ratioY = size?.height?.div(displayMetrics.heightPixels  - statusBarHeight) ?: 1.0
 
-        Log.e(TAG, "Height: " + size?.height.toString() + "!")
-        Log.e(TAG, "Statusbar: " + statusBarHeight.toString() + " - " + navigationBarHeight.toString() + "!")
-        Log.e(TAG, "Ratio: " + ratioY.toString() + "!")
-        Log.e(TAG, "HP: " +  displayMetrics.heightPixels.toString() + "!")
+
 
         resize()
 
         br.y = (displayMetrics.heightPixels).toDouble() - statusBarHeight - navigationBarHeight - 8
         bl.y =  (displayMetrics.heightPixels).toDouble() - statusBarHeight - navigationBarHeight - 8
 
-        Log.e(TAG, "tl: " + tl.x + " - " + tl.y + "!")
-        Log.e(TAG, "tr: " + tr.x + " - " + tr.y + "!")
-        Log.e(TAG, "bl: " + bl.x + " - " + bl.y + "!")
-        Log.e(TAG, "br: " + br.x + " - " + br.y + "!")
+
         movePoints()
     }
 

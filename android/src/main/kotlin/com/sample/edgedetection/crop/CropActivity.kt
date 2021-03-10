@@ -39,9 +39,9 @@ class CropActivity : BaseActivity(), ICropView.Proxy {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.crop_activity_menu, menu)
 
-        menu.setGroupVisible(R.id.enhance_group, showMenuItems)
+        menu.setGroupVisible(R.id.enhance_group, false)
 
-        menu.findItem(R.id.rotation_image).setVisible(showMenuItems)
+        menu.findItem(R.id.rotation_image).setVisible(false)
 
         if(showMenuItems) {
             menu.findItem(R.id.action_label)
@@ -82,10 +82,10 @@ class CropActivity : BaseActivity(), ICropView.Proxy {
 
 
 
-             
 
 
-                //changeMenuVisibility(true);
+
+                changeMenuVisibility(true);
 
                 return true
             }
